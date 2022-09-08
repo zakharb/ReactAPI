@@ -1,0 +1,52 @@
+version: '3.7'
+
+services:
+  backend:
+    build: ./backend
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4
+    volumes:
+      - ./backend/:/app/
+    ports:
+      - 8001:8000
+    environment:
+      - DATABASE_URI=postgresql://db_username:db_password@db/db_dev
+    depends_on:
+       - db
+    logging:
+        driver: none 
+  
+  frontend:
+    build: ./frontend
+    volumes:
+      - /app/node_modules
+      - ./frontend/:/app/
+    depends_on:
+       - db
+    logging:
+        driver: none 
+
+  db:
+    image: postgres:latest
+    volumes:
+      - postgres_data_db:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=db_username
+      - POSTGRES_PASSWORD=db_password
+      - POSTGRES_DB=db_dev
+    logging:
+        driver: none 
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx_config.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - frontend
+      - backend
+    logging:
+        driver: none 
+
+volumes:
+  postgres_data_db:
