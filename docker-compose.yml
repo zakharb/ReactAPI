@@ -6,8 +6,6 @@ services:
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4
     volumes:
       - ./backend/:/app/
-    ports:
-      - 8001:8000
     environment:
       - DATABASE_URI=postgresql://db_username:db_password@db/db_dev
     depends_on:
@@ -21,15 +19,6 @@ services:
        - db
     logging:
         driver: none 
-
-  sqs:
-    build: ./sqs
-    volumes:
-      - ./sqs/:/app/
-    environment:
-      - DATABASE_URI=postgresql://db_username:db_password@db/db_dev
-    depends_on:
-       - db
 
   db:
     image: postgres:latest

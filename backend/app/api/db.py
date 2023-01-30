@@ -28,10 +28,6 @@ import sqlalchemy
 from databases import Database
 
 DATABASE_URI = os.getenv('DATABASE_URI')
-#DATABASE_URI = "postgresql://postgres:postgres@localhost:5432"
-#2jQiq6sjNYHuBY4
-
-#DATABASE_URI = "postgresql://postgres:2jQiq6sjNYHuBY4@tickets.cuyaylrdkttv.us-east-1.rds.amazonaws.com:5432"
 
 engine = sqlalchemy.create_engine(DATABASE_URI)
 metadata = sqlalchemy.MetaData()
