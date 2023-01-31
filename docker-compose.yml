@@ -8,17 +8,13 @@ services:
       - ./backend/:/app/
     environment:
       - DATABASE_URI=postgresql://db_username:db_password@db/db_dev
-    depends_on:
-       - db
   
   frontend:
     build: ./frontend
-    volumes:
-      - ./frontend/:/app/
+    ports:
+      - "8001:3000"
     depends_on:
        - db
-    logging:
-        driver: none 
 
   db:
     image: postgres:latest
@@ -40,8 +36,6 @@ services:
     depends_on:
       - frontend
       - backend
-    logging:
-        driver: none 
 
 volumes:
   postgres_data_db:

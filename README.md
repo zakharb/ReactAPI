@@ -63,16 +63,28 @@ docker-compose up -d
 
 ## :blue_square: Usage  
 
-### Tickets  
-Get, put, update, delete `Tickets` via API [Tickets](http://localhost:8080/api/v1/tickets/docs)    
+### Frontend  
+Create, update, delete [Tickets](http://localhost:3000/tickets)    
+
 <p align="center">
-  <img src="img/tickets.gif" alt="animated" />
+  <img src="img/tickets.png" />
 </p>
 
-### Comments    
-Get, put, update, delete `Comments` via API [Comments](http://localhost:8080/api/v1/comments/docs)  
+Create, update, delete [Comments](http://localhost:3000/comments)  
+
 <p align="center">
   <img src="img/comments.png" />
+</p>
+
+### Backend    
+Get, put, update, delete `Tickets` via API [Tickets](http://localhost:8080/api/v1/tickets/docs)  
+<p align="center">
+  <img src="img/back_tickets.png" />
+</p>
+
+Get, put, update, delete `Comments` via API [Comments](http://localhost:8080/api/v1/comments/docs)  
+<p align="center">
+  <img src="img/back_comments.png" />
 </p>
 
 ## :blue_square: Deployment
