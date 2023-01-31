@@ -23,7 +23,7 @@ const TicketForm = ({create}) => {
 	return(
 		<div>
 	      <Modal.Header closeButton>
-	        <Modal.Title>Comment Create</Modal.Title>
+	        <Modal.Title>Ticket Create</Modal.Title>
 	      </Modal.Header>
 
 	      <Modal.Body>

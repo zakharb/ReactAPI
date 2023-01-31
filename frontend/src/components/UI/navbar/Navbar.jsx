@@ -21,7 +21,7 @@ const MyNavbar = function () {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand href="#home">
-        <strong>AWS API</strong>
+        <strong>React API</strong>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
